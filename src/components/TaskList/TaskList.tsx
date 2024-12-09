@@ -23,7 +23,9 @@ const TaskList = (props: TaskListProps) => {
   return (
     <>
       <div className='mb-2'>
-        <h2 className={styles.title}>{doneTaskList ? 'Complete Task' : 'Pending Task'}</h2>
+        <h2 className={`${styles.title} ${doneTaskList ? styles.titlePending : styles.titleCompleted}`}>
+          {doneTaskList ? 'Completed Task' : 'Pending Task'}
+        </h2>
 
         <div className={styles.tasks}>
           {todos.map((todo) => (

@@ -1,13 +1,31 @@
 .title {
   margin-bottom: 2rem;
+  border-radius: 1.2rem;
+  padding: 0.4rem 0.8rem;
+  display: inline-block;
+  font-size: 1.8rem;
+
+  &Pending {
+    background-color: #a5e37e;
+  }
+
+  &Completed {
+    background-color: #e3d97a;
+  }
 }
 
 .task {
+  border-radius: 1.2rem;
+  padding: 0.4rem 0.8rem;
   display: flex;
   align-items: flex-start;
 
   &:not(:last-child) {
     margin-bottom: 1rem;
+  }
+
+  &:hover {
+    background-color: #f0f0f0;
   }
 }
 
