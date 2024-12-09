@@ -56,8 +56,8 @@ export default TaskList
 
 TaskList.propTypes = {
   doneTaskList: PropTypes.bool,
-  todos: PropTypes.arrayOf(TodoTypes),
-  handleDoneTodo: PropTypes.func,
-  startEditTodo: PropTypes.func,
-  deleteTodo: PropTypes.func
+  todos: PropTypes.arrayOf(TodoTypes).isRequired,
+  handleDoneTodo: PropTypes.func.isRequired,
+  startEditTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 }
