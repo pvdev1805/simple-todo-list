@@ -128,6 +128,7 @@ const TodoList = () => {
             handleDoneTodo={handleDoneTodo}
             startEditTodo={startEditTodo}
             deleteTodo={deleteTodo}
+            currentTodo={currentTodo}
           />
           <TaskList
             doneTaskList
@@ -135,6 +136,7 @@ const TodoList = () => {
             handleDoneTodo={handleDoneTodo}
             startEditTodo={startEditTodo}
             deleteTodo={deleteTodo}
+            currentTodo={currentTodo}
           />
         </div>
       </div>

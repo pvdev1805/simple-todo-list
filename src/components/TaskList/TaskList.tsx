@@ -11,10 +11,11 @@ interface TaskListProps {
   handleDoneTodo: (id: string, done: boolean) => void
   startEditTodo: (id: string) => void
   deleteTodo: (id: string) => void
+  currentTodo: Todo | null
 }
 
 const TaskList = (props: TaskListProps) => {
-  const { doneTaskList, todos, handleDoneTodo, startEditTodo, deleteTodo } = props
+  const { doneTaskList, todos, handleDoneTodo, startEditTodo, deleteTodo, currentTodo } = props
 
   const onChangeCheckbox = (idTodo: string) => (event: React.ChangeEvent<HTMLInputElement>) => {
     handleDoneTodo(idTodo, event.target.checked)
@@ -29,7 +30,10 @@ const TaskList = (props: TaskListProps) => {
 
         <div className={styles.tasks}>
           {todos.map((todo) => (
-            <div className={styles.task} key={todo.id}>
+            <div
+              className={`${styles.task} ${currentTodo && todo.id === currentTodo.id ? styles.taskEditing : ''}`}
+              key={todo.id}
+            >
               <input
                 type='checkbox'
                 className={styles.taskCheckbox}
@@ -61,5 +65,6 @@ TaskList.propTypes = {
   todos: PropTypes.arrayOf(TodoTypes).isRequired,
   handleDoneTodo: PropTypes.func.isRequired,
   startEditTodo: PropTypes.func.isRequired,
-  deleteTodo: PropTypes.func.isRequired
+  deleteTodo: PropTypes.func.isRequired,
+  currentTodo: PropTypes.oneOfType([TodoTypes, PropTypes.oneOf([null])])
 }
